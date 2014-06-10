@@ -1,14 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  id: 1
   title: MyString
   filename: MyString
   now_history_id: 1
   owner_user_id: 1
 
 two:
-  id: 1
   title: MyString
   filename: MyString
   now_history_id: 1

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140610105244) do
+ActiveRecord::Schema.define(version: 20140610111454) do
 
   create_table "dialogs", force: true do |t|
     t.integer  "docs_id"
@@ -36,6 +36,13 @@ ActiveRecord::Schema.define(version: 20140610105244) do
     t.integer  "next_histroy_id"
     t.integer  "by_user_id"
     t.string   "by_user_email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "docs_users", force: true do |t|
+    t.integer  "doc_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

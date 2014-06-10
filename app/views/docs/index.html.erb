@@ -3,7 +3,6 @@
 <table>
   <thead>
     <tr>
-      <th>Id</th>
       <th>Title</th>
       <th>Filename</th>
       <th>Now history</th>
@@ -15,7 +14,6 @@
   <tbody>
     <% @docs.each do |doc| %>
       <tr>
-        <td><%= doc.id %></td>
         <td><%= doc.title %></td>
         <td><%= doc.filename %></td>
         <td><%= doc.now_history_id %></td>
