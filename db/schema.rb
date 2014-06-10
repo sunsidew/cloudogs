@@ -11,13 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140610090805) do
+ActiveRecord::Schema.define(version: 20140610101025) do
+
+  create_table "dialogs", force: true do |t|
+    t.integer  "docs_id"
+    t.string   "filename"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "docs", force: true do |t|
     t.string   "title"
     t.string   "filename"
     t.integer  "now_history_id"
     t.integer  "owner_user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "docs_histories", force: true do |t|
+    t.integer  "docs_id"
+    t.string   "description"
+    t.integer  "prev_histroy_id"
+    t.integer  "next_histroy_id"
+    t.integer  "by_user_id"
+    t.string   "by_user_email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "login_email"
+    t.string   "login_crypt_pw"
+    t.string   "username"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

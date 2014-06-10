@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  docs_id: 1
+  description: MyString
+  prev_histroy_id: 1
+  next_histroy_id: 1
+  by_user_id: 1
+  by_user_email: MyString
+
+two:
+  docs_id: 1
+  description: MyString
+  prev_histroy_id: 1
+  next_histroy_id: 1
+  by_user_id: 1
+  by_user_email: MyString

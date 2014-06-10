@@ -1,0 +1,2 @@
+module DocsHistoriesHelper
+end

@@ -1,0 +1,35 @@
+<h1>Listing docs_histories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Docs</th>
+      <th>Description</th>
+      <th>Prev histroy</th>
+      <th>Next histroy</th>
+      <th>By user</th>
+      <th>By user email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @docs_histories.each do |docs_history| %>
+      <tr>
+        <td><%= docs_history.docs_id %></td>
+        <td><%= docs_history.description %></td>
+        <td><%= docs_history.prev_histroy_id %></td>
+        <td><%= docs_history.next_histroy_id %></td>
+        <td><%= docs_history.by_user_id %></td>
+        <td><%= docs_history.by_user_email %></td>
+        <td><%= link_to 'Show', docs_history %></td>
+        <td><%= link_to 'Edit', edit_docs_history_path(docs_history) %></td>
+        <td><%= link_to 'Destroy', docs_history, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Docs history', new_docs_history_path %>

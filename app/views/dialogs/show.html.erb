@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Docs:</strong>
+  <%= @dialog.docs_id %>
+</p>
+
+<p>
+  <strong>Filename:</strong>
+  <%= @dialog.filename %>
+</p>
+
+<%= link_to 'Edit', edit_dialog_path(@dialog) %> |
+<%= link_to 'Back', dialogs_path %>

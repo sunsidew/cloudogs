@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :users
+
+  resources :docs_histories
+
+  resources :dialogs
+
   resources :docs
 
   # The priority is based upon order of creation: first created -> highest priority.

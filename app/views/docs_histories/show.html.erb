@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Docs:</strong>
+  <%= @docs_history.docs_id %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @docs_history.description %>
+</p>
+
+<p>
+  <strong>Prev histroy:</strong>
+  <%= @docs_history.prev_histroy_id %>
+</p>
+
+<p>
+  <strong>Next histroy:</strong>
+  <%= @docs_history.next_histroy_id %>
+</p>
+
+<p>
+  <strong>By user:</strong>
+  <%= @docs_history.by_user_id %>
+</p>
+
+<p>
+  <strong>By user email:</strong>
+  <%= @docs_history.by_user_email %>
+</p>
+
+<%= link_to 'Edit', edit_docs_history_path(@docs_history) %> |
+<%= link_to 'Back', docs_histories_path %>
