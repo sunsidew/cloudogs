@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140610111454) do
+ActiveRecord::Schema.define(version: 20140610115946) do
 
   create_table "dialogs", force: true do |t|
     t.integer  "docs_id"
@@ -40,12 +40,12 @@ ActiveRecord::Schema.define(version: 20140610111454) do
     t.datetime "updated_at"
   end
 
-  create_table "docs_users", force: true do |t|
-    t.integer  "doc_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "docs_users", id: false, force: true do |t|
+    t.integer "user_id", null: false
+    t.integer "doc_id",  null: false
   end
+
+  add_index "docs_users", ["user_id", "doc_id"], name: "index_docs_users_on_user_id_and_doc_id", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "login_email"
