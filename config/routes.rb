@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  get '/stream' => 'content#stream'
+  post '/docs/sendtest' => 'docs#sendtest'
+
   resources :docs
 
   resources :users

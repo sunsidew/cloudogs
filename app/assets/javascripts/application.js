@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+	var source = new EventSource('/stream');
+	source.addEventListener('new_message', function(e) {
+		var message = JSON.parse(e.data);
+		$("#screen").append($('<p>').text("check" + ":" + message.content));
+	});
+});

@@ -1,6 +1,11 @@
 class DocsController < ApplicationController
   before_action :set_doc, only: [:show, :edit, :update, :destroy]
 
+  def sendtest
+    $redis.publish('new_message',params.to_json)
+    render nothing: true
+  end
+
   # GET /docs
   # GET /docs.json
   def index
