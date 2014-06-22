@@ -1,4 +1,12 @@
 class DocsController < ApplicationController
+  before_filter :is_admin
+  
+  def is_admin 
+    if cookies['membership'] != "admin" then
+      redirect_to('/login')
+    end
+  end
+
   before_action :set_doc, only: [:show, :edit, :update, :destroy]
 
   def sendtest

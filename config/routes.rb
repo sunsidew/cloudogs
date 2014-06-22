@@ -1,15 +1,21 @@
 Rails.application.routes.draw do
 
+  root 'users#index'
+
+  post '/login' => "users#login"
+  get '/logout' => "users#logout"
+  get '/signup' => "users#new"
+  
   get '/stream' => 'content#stream'
   post '/docs/sendtest' => 'docs#sendtest'
 
   resources :docs
 
-  resources :users
+  # resources :users
 
-  resources :docs_histories
+  # resources :docs_histories
 
-  resources :dialogs
+  # resources :dialogs
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

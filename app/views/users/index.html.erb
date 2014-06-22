@@ -1,29 +1,17 @@
-<h1>Listing users</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Login email</th>
-      <th>Login crypt pw</th>
-      <th>Username</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.login_email %></td>
-        <td><%= user.login_crypt_pw %></td>
-        <td><%= user.username %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New User', new_user_path %>
+<form action="login" method="post" onsubmit="return false"> 
+  <fieldset>
+    <legend>로그인</legend>
+    <div>
+      <span> ID </span>
+      <input id="id" name="id" size="20" type="text" value="" />
+    </div>
+    <div>
+      <span> PW </span>
+      <input id="password" name="password" size="20" type="password" value="" />
+    </div>
+    
+    <div>
+      <input name="commit" onclick="this.disabled=true;this.value='Please wait...';this.form.submit();" type="submit" value="Login" />
+    </div>
+  </fieldset>
+</form>

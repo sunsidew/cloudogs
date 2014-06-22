@@ -1,19 +1,13 @@
-<p id="notice"><%= notice %></p>
+<p id="notice">가입되었습니다.</p>
 
 <p>
-  <strong>Login email:</strong>
+  <strong>이메일 :</strong>
   <%= @user.login_email %>
 </p>
 
 <p>
-  <strong>Login crypt pw:</strong>
-  <%= @user.login_crypt_pw %>
-</p>
-
-<p>
-  <strong>Username:</strong>
+  <strong>닉네임 :</strong>
   <%= @user.username %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

@@ -1,4 +1,34 @@
 class UsersController < ApplicationController
+
+  def login
+    admin_id = params[:id]
+    admin_password = params[:password]
+    
+    if admin_id == 'admin' && admin_password == '1234' then
+      # make cookie
+      cookies[:membership] = { :value => "admin", :expires => 1.hour.from_now }
+      success_to
+    else
+      failed_to
+    end
+  end
+
+  def logout
+    # delete cookie
+    cookies.delete :membership
+    failed_to
+  end
+  
+  def success_to
+    redirect_to('/docs')
+  end
+  
+  def failed_to
+    redirect_to('/')
+  end
+  
+  private :success_to, :failed_to
+
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
