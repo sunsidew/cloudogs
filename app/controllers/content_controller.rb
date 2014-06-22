@@ -8,8 +8,11 @@ class ContentController < ApplicationController
     redis.subscribe('new_message') do |on|
       on.message do |event, data|
         response.stream.write "event: #{event}\n"
+        #response.stream.write ""
         response.stream.write "data: #{data}\n\n"
-        puts event, data
+        print "event- :"+event+"\n"
+        print "data- :"+data+"\n"
+        #puts event, data
       end
     end
 

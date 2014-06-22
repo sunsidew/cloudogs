@@ -23,10 +23,10 @@
 <%= link_to 'Edit', edit_doc_path(@doc) %> |
 <%= link_to 'Back', docs_path %>
 
-<div id="screen"></div>
+<textarea id="screen"></textarea>
 
 <div>
-	<%= form_tag "/docs/sendtest", method: "post", remote: true do %>
+	<%= form_tag "sendtest", method: "post", remote: true do %>
 		<%= text_field_tag :content %>
 		<%= submit_tag "Send" %>
 	<% end %>

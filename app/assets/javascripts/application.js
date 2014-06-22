@@ -17,8 +17,20 @@
 
 $(document).ready(function(){
 	var source = new EventSource('/stream');
+	var scr = document.getElementById("screen");
+	var url = "/docs/sendtest";
+
 	source.addEventListener('new_message', function(e) {
 		var message = JSON.parse(e.data);
-		$("#screen").append($('<p>').text("check" + ":" + message.content));
+		scr.value = message.content;
+	});
+
+	scr.addEventListener('input', function(e) {
+		var request = new XMLHttpRequest();
+		var params = "content="+scr.value;
+	 	request.open("POST", url, true);
+	 	request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		request.send(params);
+	 	console.log(request);
 	});
 });
