@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<%= link_to "리스트로 돌아가기", "/docs" %>
 
 <p>
   <strong>Title:</strong>
@@ -12,7 +12,13 @@
 
 <p>
   <strong>Now history:</strong>
-  <%= @doc.now_history_id %>
+  <div id="history">
+    <% if @doc.now_history_id %>
+      <%= @doc.now_history_id %> : <%= @history_email %>, <%= @history_timestamp %>
+    <% else %>
+      저장 기록이 없습니다.  
+    <% end %>
+  </div>
 </p>
 
 <p>
@@ -20,14 +26,19 @@
   <%= @doc.owner_user_id %>
 </p>
 
-<%= link_to 'Edit', edit_doc_path(@doc) %> |
-<%= link_to 'Back', docs_path %>
+<p>
+  <div id="navig">
+    문서 불러오기가 완료되었습니다.
+  </div>
+</p>
 
-<textarea id="screen"></textarea>
+<% if @count == 0 %>
+  <p>
+    <%= form_tag "/docs/addlist", :method => :post do %>
+      <%= hidden_field_tag :doc_id, @doc.id %>
+      <%= submit_tag "내 리스트에 등록" %>
+    <% end %> 
+  </p>
+<% end %>
 
-<div>
-	<%= form_tag "sendtest", method: "post", remote: true do %>
-		<%= text_field_tag :content %>
-		<%= submit_tag "Send" %>
-	<% end %>
-</div>
+<textarea id="screen"><%= @fileload %></textarea>

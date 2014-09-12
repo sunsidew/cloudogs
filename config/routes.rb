@@ -3,11 +3,18 @@ Rails.application.routes.draw do
   root 'users#index'
 
   post '/login' => "users#login"
+  post '/signup' => "users#signup"
+  
   get '/logout' => "users#logout"
-  get '/signup' => "users#new"
+  get '/create' => "users#create"
   
   get '/stream' => 'content#stream'
+  delete '/docs/:id' => 'docs#destroy'
+
   post '/docs/sendtest' => 'docs#sendtest'
+  post '/docs/addlist' => 'docs#addlist'
+
+  delete '/docs/kill/:id' => 'docs#kill'
 
   resources :docs
 

@@ -1,17 +1,10 @@
-<form action="login" method="post" onsubmit="return false"> 
-  <fieldset>
-    <legend>로그인</legend>
-    <div>
-      <span> ID </span>
-      <input id="id" name="id" size="20" type="text" value="" />
-    </div>
-    <div>
-      <span> PW </span>
-      <input id="password" name="password" size="20" type="password" value="" />
-    </div>
-    
-    <div>
-      <input name="commit" onclick="this.disabled=true;this.value='Please wait...';this.form.submit();" type="submit" value="Login" />
-    </div>
-  </fieldset>
-</form>
+<%= link_to "회원가입", "/create" %>
+<%= form_tag(action: "login") do %>
+  <%= label_tag(:email, "이메일 :") %>
+  <%= text_field_tag(:email) %>
+
+  <%= label_tag(:password, "비밀번호 :") %>
+  <%= text_field_tag(:password) %>
+  
+  <%= submit_tag("로그인") %>
+<% end %>

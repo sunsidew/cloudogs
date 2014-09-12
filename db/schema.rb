@@ -14,30 +14,24 @@
 ActiveRecord::Schema.define(version: 20140610115946) do
 
   create_table "dialogs", force: true do |t|
-    t.integer  "docs_id"
-    t.string   "filename"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "docs_id"
+    t.string  "filename"
   end
 
   create_table "docs", force: true do |t|
-    t.string   "title"
-    t.string   "filename"
-    t.integer  "now_history_id"
-    t.integer  "owner_user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string  "title"
+    t.string  "filename"
+    t.integer "now_history_id"
+    t.integer "owner_user_id"
   end
 
   create_table "docs_histories", force: true do |t|
-    t.integer  "docs_id"
-    t.string   "description"
-    t.integer  "prev_histroy_id"
-    t.integer  "next_histroy_id"
-    t.integer  "by_user_id"
-    t.string   "by_user_email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "docs_id"
+    t.string  "description"
+    t.integer "prev_history_id"
+    t.integer "next_history_id"
+    t.integer "by_user_id"
+    t.string  "by_user_email"
   end
 
   create_table "docs_users", id: false, force: true do |t|
@@ -45,14 +39,10 @@ ActiveRecord::Schema.define(version: 20140610115946) do
     t.integer "doc_id",  null: false
   end
 
-  add_index "docs_users", ["user_id", "doc_id"], name: "index_docs_users_on_user_id_and_doc_id", unique: true, using: :btree
-
   create_table "users", force: true do |t|
-    t.string   "login_email"
-    t.string   "login_crypt_pw"
-    t.string   "username"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "login_email"
+    t.string "login_crypt_pw"
+    t.string "username"
   end
 
 end

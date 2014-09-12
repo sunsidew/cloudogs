@@ -5,7 +5,7 @@ class UsersDocsList < ActiveRecord::Migration
       t.integer :doc_id, :null => false
     end
 
-    add_index :docs_users, [:user_id, :doc_id], :unique => true
+    # add_index :docs_users, [:user_id, :doc_id], :unique => true
   end
 
   def self.down

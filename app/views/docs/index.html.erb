@@ -1,29 +1,28 @@
 <h1>Listing docs</h1>
-
+<h3><%= "환영합니다 "+@my_name+"님, ("+@my_email+")" %></h3>
+<h6><%= link_to "로그아웃", "/logout" %></h6>
 <table>
   <thead>
     <tr>
       <th>Title</th>
-      <th>Filename</th>
-      <th>Now history</th>
       <th>Owner user</th>
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
-    <% @docs.each do |doc| %>
+    <% for i in 0..@doc_id.length-1 %>
       <tr>
-        <td><%= doc.title %></td>
-        <td><%= doc.filename %></td>
-        <td><%= doc.now_history_id %></td>
-        <td><%= doc.owner_user_id %></td>
-        <td><%= link_to 'Show', doc %></td>
-        <td><%= link_to 'Edit', edit_doc_path(doc) %></td>
-        <td><%= link_to 'Destroy', doc, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to @doc_title[i], '/docs/'+@doc_id[i].to_s %></td>
+        <td><%= @doc_owner_name[i] %><br/><%= "("+@doc_owner_email[i]+")" %></td>
+        <td><% if @doc_owner_email[i] == @my_email %>
+              <%= link_to "관리자 권한으로 삭제", '/docs/kill/'+@doc_id[i].to_s, method: :delete, data: { confirm: '문서를 영구 삭제합니다.' } %>
+            <% else %>
+              <%= link_to "내 리스트에서 삭제", 'docs/'+@doc_id[i].to_s, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+        </td>
       </tr>
     <% end %>
-  </tbody>
+  </thead>
 </table>
 
 <br>

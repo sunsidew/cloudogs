@@ -2,7 +2,6 @@
   <% if @doc.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@doc.errors.count, "error") %> prohibited this doc from being saved:</h2>
-
       <ul>
       <% @doc.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -14,18 +13,6 @@
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :filename %><br>
-    <%= f.text_field :filename %>
-  </div>
-  <div class="field">
-    <%= f.label :now_history_id %><br>
-    <%= f.number_field :now_history_id %>
-  </div>
-  <div class="field">
-    <%= f.label :owner_user_id %><br>
-    <%= f.number_field :owner_user_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -1,0 +1,15 @@
+<h1>회원가입</h1>
+<%= link_to "로그인 페이지로", "/" %>
+
+<%= form_tag(action: "signup") do %>
+  <%= label_tag(:email, "이메일 :") %>
+  <%= text_field_tag(:email) %>
+
+  <%= label_tag(:password, "비밀번호 :") %>
+  <%= text_field_tag(:password) %>
+  
+  <%= label_tag(:username, "사용자 이름 :") %>
+  <%= text_field_tag(:username) %>
+  
+  <%= submit_tag("회원가입") %>
+<% end %>
