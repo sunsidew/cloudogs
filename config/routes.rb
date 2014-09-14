@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
-  root 'users#index'
+  root 'docs#index'
 
   post '/login' => "users#login"
   post '/signup' => "users#signup"
   
+  get '/signin' => "users#index" 
   get '/logout' => "users#logout"
   get '/create' => "users#create"
   

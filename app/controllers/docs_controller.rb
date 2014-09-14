@@ -13,7 +13,7 @@ class DocsController < ApplicationController
 
   def is_login
     if cookies['membership'] != "user" then
-      redirect_to('/')
+      redirect_to('/signin')
     end
   end
 

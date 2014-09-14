@@ -89,7 +89,7 @@ class UsersController < ApplicationController
   end
   
   def failed_to
-    redirect_to('/')
+    redirect_to('/signin')
   end
   
   private :success_to, :failed_to
